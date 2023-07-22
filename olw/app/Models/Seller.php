@@ -8,20 +8,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Client extends Model
+class Seller extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'address_id',
+        'company_id',
         'user_id'
     ];
 
-    //Relação 1 p/ N, nos diz 
-    //que o cliente possui só um endereço
-    public function address(): HasOne
+    public function company(): BelongsTo
     {
-        return $this->hasOne(Address::class);
+        return $this->belongsTo(Company::class);
     }
 
     public function user(): BelongsTo
