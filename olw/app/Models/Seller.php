@@ -27,7 +27,7 @@ class Seller extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function sales(): HasMany
+    public function sale(): HasMany
     {
         return $this->hasMany(Sale::class);
     }
