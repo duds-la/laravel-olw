@@ -19,9 +19,9 @@ class Client extends Model
 
     //Relação 1 p/ N, nos diz 
     //que o cliente possui só um endereço
-    public function address(): HasOne
+    public function address(): BelongsTo
     {
-        return $this->hasOne(Address::class);
+        return $this->belongsTo(Address::class);
     }
 
     public function user(): BelongsTo
