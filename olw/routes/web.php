@@ -35,14 +35,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/chart', function(){
         $fields = implode(',',SalesCommission::getColumns());
 
-        $question = ''
+        $question = 'Fala a média de comissão nos últimos 3 anos';
 
         return OpenAI::completions()->create([
             'model' => 'text-davinci-003',
             'prompt'=> "Considerando a lista de campos ($fields), gere uma 
             configuração json do Vega-lite v5 (sem campo de dados e com
             descrição breve) que atenda o seguinte pedido $question. Resposta:",
-            'max_tokens' => 100
+            'max_tokens' => 1000
         ])->choices[0]->text;
     });
 });
